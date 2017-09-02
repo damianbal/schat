@@ -1,0 +1,45 @@
+body {
+  background: #304662;
+  color: #969696;
+  font-size: 14px;
+  font-family: 'Lato',sans-serif;
+  color: white;
+}
+
+.content-container {
+  max-width: 460px !important;
+  background: white;
+}
+
+.container,
+.custom-container {
+  max-width: 460px !important;
+}
+
+.muted {
+  color: #6e6e6e;
+}
+
+.message-row {
+  background: #f1f5f8;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.bar {
+  background: #d6dfe6;
+}
+
+.user-profile-bar {
+  background: #1d232a;
+  height: 60px;
+  line-height: 60px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.footer {
+  color: rga(255, 255, 255, 0.1);
+}
+
