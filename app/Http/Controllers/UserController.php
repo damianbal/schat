@@ -26,20 +26,15 @@ class UserController extends Controller
      {
          $users = \App\User::all();
 
-
-
          $active = [];
 
          foreach($users as $user)
          {
-              $now = Carbon::now();
-             //$diffInMinutes = $user->created_at->diffInMinutes($now)-60;
-             //$diffInMinutes = $now->diffInMinutes($user->updated_at);
-             $diffInMinutes = $user->updated_at->diffInMinutes($now);
-             $active[] = ['user' => $user->name, 'timediff' => $diffInMinutes];
-             // check
+             $now = Carbon::now();
 
-             if($diffInMinutes > 2) // inactive for 3 minutes
+             $diffInMinutes = $user->updated_at->diffInMinutes($now);
+
+             if($diffInMinutes > 2) // inactive for 2 minutes
              {
                  $user->timestamps = false;
                  $user->active = false;

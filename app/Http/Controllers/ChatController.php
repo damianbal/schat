@@ -10,17 +10,27 @@ use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
+    /**
+     * Display chat
+     */
     public function chat()
     {
         return view('chat.chat');
     }
 
+    /**
+     *  Enter chat (Sign in user)
+     */
     public function enter()
     {
+        // validate request
+        $this->validate(request(), [
+            'username' => 'required|min:3',
+            'password' => 'required|min:3'
+        ]);
 
         $username = request()->input('username');
         $password = request()->input('password');
-
 
         $user = User::where('name', $username)->first();
 
@@ -32,11 +42,6 @@ class ChatController extends Controller
                 'color' => request()->input('color'),
             ]);
 
-            session([
-                'username' => $u->name
-            ]);
-
-            //echo "STWORZONO KOTNO!: " . $u->id;
             Auth::loginUsingId($u->id);
 
             return redirect('/chat');
@@ -46,23 +51,20 @@ class ChatController extends Controller
             // attempt login
             if(Auth::attempt(['name' => $username, 'password' => $password]))
             {
-
-                session([
-                    'name' => Auth::user()->name
-                ]);
-
                 return redirect('/chat');
-
             }
             else
             {
-                return back();
+                return back()->with('errors', ["Username and password don't match!"]);
             }
         }
 
-        return back();
+        return back()->with('errors', ["Could not sign in!"]);
     }
 
+    /**
+     * Login form
+     */
     public function start()
     {
         return view('chat.start');

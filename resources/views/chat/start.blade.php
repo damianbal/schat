@@ -1,10 +1,10 @@
 @extends('layout')
 
 @section('content')
-        <div class="mb-1 mt-1">{!! $welcome_message !!}</div>
+        <div class="mb-1 mt-1 p-1">{!! $welcome_message !!}</div>
 
-    <div>
-            <form method="POST" action="{{ route('chat.enter') }}">
+
+            <form style="height:500px;" method="POST" action="{{ route('chat.enter') }}">
 
                 {{ csrf_field() }}
       <div class="form-group">
@@ -17,17 +17,22 @@
           <small>If you created account, please provide your password.</small>
       </div>
     <div class="form-group">
-          <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#colorCollapse"> Set custom color</button>
+          <button class="btn btn-dark" type="button" data-toggle="collapse" data-target="#colorCollapse"  aria-expanded="false" aria-controls="collapseExample"> Set custom color</button>
           <br>
           <small>Only if you are creating new account</small>
       </div>
-      <div class="form-group collapse" id="colorCollapse">
+      <div class="form-group">
           <br>
-        <label class="muted">HEX/RGB color</label>
-        <input name="color" type="text" class="form-control dark-form-control" placeholder="HEX/RGB" value="#2196F3">
+          <div class="collapse" id="colorCollapse">
+            <label class="muted">HEX/RGB color</label>
+            <input name="color" type="text" class="form-control dark-form-control" placeholder="HEX/RGB" value="#2196F3">
+          </div>
       </div>
 
+      <div class="form-group">
+
       <div class="text-center"><button type="submit" class="btn btn-dark">Enter chat</button></div>
+  </div>
     </form>
     </div>
 @endsection

@@ -42,11 +42,9 @@
         props:["isadmin"],
         methods: {
             removeMessage(message) {
-                //alert('removing ' + message.id);
 
                 axios.get('/message/remove/' + message.id).then(function(response) {
-                //    toastr.info('Message (#' + message.id + ') created by ' + message.user + ' has been removed!');
-            //    toastr.info('hej');
+
                 }).catch(function(error) {
                     alert('Could not remove message!');
                 });
@@ -59,10 +57,7 @@
                     self.user.name = response.data.name;
                     self.user.can_moderate = response.data.can_moderate;
 
-                    //$('#chat').slideDown();
-
                 }).catch(function(error) {
-                    //
 
                     alert('Error loading user info!');
                 });
@@ -70,7 +65,7 @@
 
             fetchMessages() {
                 let self = this;
-                axios.get('/api/fetch/messages').then(function(response) {
+                axios.get('/fetch/messages').then(function(response) {
 
                     let msgs = response.data;
                     self.messages = msgs;

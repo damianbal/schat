@@ -5,7 +5,6 @@ body {
     background: $body_background;
     color: $text_color;
     font-size: $text_size;
-    //-webkit-font-smoothing:antialiased;
     font-family:'Lato',sans-serif;
     color:white;
 }
@@ -20,7 +19,7 @@ body {
 
 .container, .custom-container {
     max-width: $container_width !important;
-
+    color:rgba(0,0,0,0.5);
 }
 
 .muted {

@@ -870,7 +870,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(10);
-module.exports = __webpack_require__(49);
+module.exports = __webpack_require__(52);
 
 
 /***/ }),
@@ -898,7 +898,7 @@ Vue.component('messages', __webpack_require__(37));
 Vue.component('messagecomposer', __webpack_require__(40));
 Vue.component('user-update-activity', __webpack_require__(43));
 Vue.component('user-profile', __webpack_require__(46));
-Vue.component('active-users', __webpack_require__(54));
+Vue.component('active-users', __webpack_require__(49));
 
 var app = new Vue({
   el: '#app'
@@ -41975,12 +41975,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ["isadmin"],
     methods: {
         removeMessage: function removeMessage(message) {
-            //alert('removing ' + message.id);
 
-            axios.get('/message/remove/' + message.id).then(function (response) {
-                //    toastr.info('Message (#' + message.id + ') created by ' + message.user + ' has been removed!');
-                //    toastr.info('hej');
-            }).catch(function (error) {
+            axios.get('/message/remove/' + message.id).then(function (response) {}).catch(function (error) {
                 alert('Could not remove message!');
             });
         },
@@ -41989,17 +41985,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get('/user').then(function (response) {
                 self.user.name = response.data.name;
                 self.user.can_moderate = response.data.can_moderate;
-
-                //$('#chat').slideDown();
             }).catch(function (error) {
-                //
 
                 alert('Error loading user info!');
             });
         },
         fetchMessages: function fetchMessages() {
             var self = this;
-            axios.get('/api/fetch/messages').then(function (response) {
+            axios.get('/fetch/messages').then(function (response) {
 
                 var msgs = response.data;
                 self.messages = msgs;
@@ -42129,9 +42122,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
         console.log('MessageComposer mounted.');
-        window.axios.defaults.headers.common = {
-            'X-Requested-With': 'XMLHttpRequest'
-        };
     },
     data: function data() {
         return { msg: "", user: "none" };
@@ -42377,11 +42367,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             axios.get('/user').then(function (response) {
                 self.user.name = response.data.name;
                 self.user.can_moderate = response.data.can_moderate;
-
-                //$('#chat').slideDown();
             }).catch(function (error) {
-                //
-
                 alert('Error loading user info!');
             });
         }
@@ -42425,24 +42411,14 @@ if (false) {
 
 /***/ }),
 /* 49 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var Component = __webpack_require__(1)(
   /* script */
-  __webpack_require__(55),
+  __webpack_require__(50),
   /* template */
-  __webpack_require__(56),
+  __webpack_require__(51),
   /* styles */
   null,
   /* scopeId */
@@ -42474,7 +42450,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 55 */
+/* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -42531,7 +42507,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 56 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -42567,6 +42543,12 @@ if (false) {
      require("vue-hot-reload-api").rerender("data-v-c362f602", module.exports)
   }
 }
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

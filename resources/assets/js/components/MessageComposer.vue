@@ -16,9 +16,6 @@
     export default {
         mounted() {
             console.log('MessageComposer mounted.');
-            window.axios.defaults.headers.common = {
-    'X-Requested-With': 'XMLHttpRequest'
-};
         },
         data() {
             return { msg: "", user:"none" }

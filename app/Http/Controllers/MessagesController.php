@@ -13,12 +13,15 @@ class MessagesController extends Controller
         $this->middleware('auth');
     }
 
-    //
+    // remove message
     public function remove(\App\Message $message)
     {
-        if(Auth::user()->can_moderate)
+        if(Auth::check())
         {
-            $message->delete();
+            if(Auth::user()->can_moderate)
+            {
+                $message->delete();
+            }
         }
     }
 }

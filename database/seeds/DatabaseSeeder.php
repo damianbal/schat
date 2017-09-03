@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         \App\User::create([
             'name' => '@admin',
             'color' => '#F44336',
-            'password' => bcrypt(env('admin_password')),
+            'password' => bcrypt(env('ADMIN_PASSWORD')),
             'can_moderate' => true,
         ]);
     }

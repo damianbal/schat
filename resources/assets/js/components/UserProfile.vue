@@ -32,12 +32,7 @@
                 axios.get('/user').then(function(response) {
                     self.user.name = response.data.name;
                     self.user.can_moderate = response.data.can_moderate;
-
-                    //$('#chat').slideDown();
-
                 }).catch(function(error) {
-                    //
-
                     alert('Error loading user info!');
                 });
             }
