@@ -6,6 +6,6 @@ Very simple chat app written in Laravel 5 + Vue2
 
 ### Installation
 
-run "composer install"
-create .env file and copy contents from .env.example and update values.
-run "php artisan migrate --seed"
+- run "composer install"
+- create .env file and copy contents from .env.example and update values.
+- run "php artisan migrate --seed"
