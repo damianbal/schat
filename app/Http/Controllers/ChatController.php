@@ -55,11 +55,11 @@ class ChatController extends Controller
             }
             else
             {
-                return back()->with('errors', ["Username and password don't match!"]);
+                return back()->with('_errors', ["Username and password don't match!"]);
             }
         }
 
-        return back()->with('errors', ["Could not sign in!"]);
+        return back()->with('_errors', ["Could not sign in!"]);
     }
 
     /**
